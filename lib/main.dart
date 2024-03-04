@@ -1,8 +1,9 @@
+import 'dart:io';
 import 'dart:math';
 
-void main(List<String> arguments) {
-  try {
-    final length = int.tryParse(arguments[0]) ?? 0;
+void main() {
+
+    final length = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
     String password = generatePassword(length);
 
     print(
@@ -10,10 +11,7 @@ void main(List<String> arguments) {
           '$password',
     );
   }
-  catch (e) {
-    print('Нет аргумента');
-  }
-}
+
 
 String generatePassword(int length) {
   const charset = 'abcdefghijklmnopqrstuvwyz'
